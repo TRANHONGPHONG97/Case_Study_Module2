@@ -111,7 +111,7 @@ public class OrderView {
                             System.out.print(" ⭆ ");
                             address = scanner.nextLine();
                         }
-                    }while (address.trim().isEmpty());
+                    } while (address.trim().isEmpty());
 
                     OrderItem orderItem = addOrderItems(orderId);
                     Order order = new Order(orderId, name, phone, address);
@@ -201,10 +201,19 @@ public class OrderView {
         List<Order> orders = orderService.findAll();
         List<OrderItem> orderItems = orderItemService.findAll();
         OrderItem newOrderItem = new OrderItem();
+        double totals = 0;
         try {
-            System.out.println("---------------------------------------------------------- ORDER ----------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------- ORDER ----------------------------------------------------------------------------");
             System.out.println("                                                                                                                                      ");
-            System.out.printf("%-15s %-20s %-25s %-15s %-30s %-15s %-15s %-15s\n", "   Id", "Tên khách hàng", " SĐT", "Địa chỉ", "Tên sản phẩm", "Số lượng", "Giá", "Tổng");
+            System.out.printf("%-15s %-20s %-25s %-15s %-30s %-15s %-15s %-15s \n",
+                    "   Id",
+                    "Tên khách hàng",
+                    " SĐT",
+                    "Địa chỉ",
+                    "Tên sản phẩm",
+                    "Số lượng",
+                    "Giá",
+                    "Tổng");
             for (Order order : orders) {
                 for (OrderItem orderItem : orderItems) {
                     if (orderItem.getOrderId() == order.getId()) {
@@ -222,9 +231,11 @@ public class OrderView {
                         AppUtils.doubleToVND(newOrderItem.getPrice()),
                         AppUtils.doubleToVND(newOrderItem.getPrice_tong())
                 );
+                totals += newOrderItem.getPrice_tong();
             }
             System.out.println("");
-            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("Tổng tiền: " + totals);
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
             boolean is = true;
             do {
                 System.out.println("Nhập 'q' để trở lại || Nhập 't' để thoát chương trình");
