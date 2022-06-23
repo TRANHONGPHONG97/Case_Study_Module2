@@ -10,8 +10,9 @@
 
 **II. Những điểm chưa làm được:**
 
+- Chưa có chức năng tạo tài khoản
 - Chưa làm phiên đăng nhập cho người dùng
-- Tìm kiếm với giá và số lượng
+- Tìm kiếm theo tên, giá và số lượng
 - Chưa có thời gian cho chức năng tạo và cập nhật: sản phẩm, order
 - Mua chỉ được hóa đơn 1 sản phẩm
 - Còn nhiều lỗi Validate (xác nhận): check email, check address,...
