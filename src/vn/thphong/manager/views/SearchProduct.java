@@ -70,7 +70,6 @@ public class SearchProduct {
     }
 
     public static void showReturnSearch(int count) {
-        System.out.println("Có '" + count + "'");
         char choice = ' ';
         boolean isChoice;
         System.out.println();
