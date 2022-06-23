@@ -15,8 +15,8 @@ public class SearchProduct {
     public static void searchMenu() {
 
         productView.show(productService.getItem());
-        boolean isChoice = true;
-        int choice = -1;
+        boolean isNumber = true;
+        int number = -1;
         do {
             System.out.println("✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤");
             System.out.println("✤         TÌM KIẾM SẢN PHẨM          ✤");
@@ -28,22 +28,22 @@ public class SearchProduct {
             System.out.println("Chọn chức năng");
             System.out.printf("⭆ \t");
             try {
-                choice = Integer.parseInt(scanner.nextLine());
+                number = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
             }
-            switch (choice) {
+            switch (number) {
                 case 1:
                     searchById();
                     break;
                 case 0:
                     ProductViewLauncher.runProduct();
-                    isChoice = false;
+                    isNumber = false;
                     break;
                 default:
                     System.out.println("Chưa hợp lệ! Mời Nhập Lại!!!");
             }
 
-        } while (isChoice);
+        } while (isNumber);
     }
 
     public static void searchById() {
@@ -70,20 +70,19 @@ public class SearchProduct {
     }
 
     public static void showReturnSearch(int count) {
-        System.out.println("Có '" + count + "' sản phẩm được tìm thấy !");
+        System.out.println("Có '" + count + "' sản phẩm được tìm thấy.");
         char press = ' ';
         boolean isChoice;
         System.out.println();
         do {
-            System.out.print("Nhấn 'c' để về menu tìm kiếm !");
+            System.out.print("Nhấn 'q' để quay lại.");
             try {
                 press = scanner.nextLine().charAt(0);
             } catch (Exception e) {
                 press = ' ';
             }
             switch (press) {
-                case 'r':
-                case 'c': {
+                case 'q': {
                     SearchProduct.searchMenu();
                     isChoice = false;
                     break;
