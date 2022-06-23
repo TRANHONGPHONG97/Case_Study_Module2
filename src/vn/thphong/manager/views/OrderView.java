@@ -39,10 +39,14 @@ public class OrderView {
         double price = product.getPrice();
         int oldQuantity = product.getQuantity();
         System.out.println("Nhập số lượng muốn mua");
-        System.out.print(" ⭆ ");
-        int quantity = Integer.parseInt(scanner.nextLine());
+        int quantity;
+        do {
+            quantity = AppUtils.retryParseInt();
+            if (quantity < 0)
+                System.out.println("(Số lượng phải lớn hơn 0)");
+        } while (quantity < 0);
         while (!checkQualityTea(product, quantity)) {
-            System.out.println("Nhập quá số lượng. Vui lòng nhập lại!");
+            System.out.println("Nhập sai số lượng. Vui lòng nhập lại!");
             System.out.println("Nhập số lượng");
             System.out.print(" ⭆ ");
             quantity = scanner.nextInt();
@@ -233,7 +237,7 @@ public class OrderView {
                 totals += newOrderItem.getPrice_tong();
             }
             System.out.println("");
-            System.out.println("Tổng tiền: " + totals);
+            System.out.println("Tổng doanh thu: " + totals + " đ");
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
             boolean is = true;
             do {

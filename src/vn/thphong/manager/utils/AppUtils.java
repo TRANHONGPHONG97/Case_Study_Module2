@@ -39,23 +39,6 @@ public class AppUtils {
         } while (true);
     }
 
-//    public static String retryInputPhone() {
-//        System.out.print(" ⭆ ");
-//        String phone;
-//        do {
-//            phone = scanner.nextLine();
-//            if ((!ValidateUtils.isPhoneValid(phone))) {
-//                System.out.println("Số " + phone + " của bạn không đúng! Vui lòng nhập lại. "
-//                        + "(Số điện thoại bao gồm 10 số và bắt đầu bằng số 0)");
-//                System.out.println("Nhập số điện thoại (vd: 0987654321)");
-//                System.out.print(" ⭆ ");
-//                continue;
-//            }
-//            break;
-//        } while (true);
-//        return phone;
-//    }
-
     public static double retryParseDouble() {
         double result;
         do {

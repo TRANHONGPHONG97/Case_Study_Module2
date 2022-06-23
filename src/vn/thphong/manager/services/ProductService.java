@@ -10,7 +10,12 @@ public class ProductService implements IProductService {
     List<Product> products = new ArrayList<>();
     private static final String path = "data/product.csv";
     private static ProductService instance;
-
+    public static ProductService getInstance() {
+        if (instance == null) {
+            instance = new ProductService();
+        }
+        return instance;
+    }
 //    @Override
 //    public List<Product> findAll() {
 //        return null;
@@ -42,12 +47,7 @@ public class ProductService implements IProductService {
         CSVUtils.writeFile(path, products);
 
     }
-    public static ProductService getInstance() {
-        if (instance == null) {
-            instance = new ProductService();
-        }
-        return instance;
-    }
+
 
     @Override
     public void addItem(Product newProduct) {
