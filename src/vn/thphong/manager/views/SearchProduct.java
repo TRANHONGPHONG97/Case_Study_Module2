@@ -70,18 +70,18 @@ public class SearchProduct {
     }
 
     public static void showReturnSearch(int count) {
-        System.out.println("Có '" + count + "' sản phẩm được tìm thấy.");
-        char press = ' ';
+        System.out.println("Có '" + count + "'");
+        char choice = ' ';
         boolean isChoice;
         System.out.println();
         do {
             System.out.print("Nhấn 'q' để quay lại.");
             try {
-                press = scanner.nextLine().charAt(0);
+                choice = scanner.nextLine().charAt(0);
             } catch (Exception e) {
-                press = ' ';
+                choice = ' ';
             }
-            switch (press) {
+            switch (choice) {
                 case 'q': {
                     SearchProduct.searchMenu();
                     isChoice = false;
