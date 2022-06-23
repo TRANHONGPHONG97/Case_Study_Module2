@@ -90,7 +90,7 @@ public class UserView {
                 showUsers(InputOption.UPDATE);
                 int id = inputId(InputOption.UPDATE);
                 System.out.println("= =     SỬA NGƯỜI DÙNG    = =");
-                System.out.println("=    1. Đổi tên             =");
+                System.out.println("=    1. Sửa tên             =");
                 System.out.println("=    2. Sửa số điện thoại   =");
                 System.out.println("=    3. Sửa địa chỉ         =");
                 System.out.println("=    4. Quay lại            =");

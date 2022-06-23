@@ -21,11 +21,8 @@ public class SearchProduct {
             System.out.println("✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤");
             System.out.println("✤         TÌM KIẾM SẢN PHẨM          ✤");
             System.out.println("✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤");
-            System.out.println("✤                                    ✤");
             System.out.println("✤       1. Tìm kiếm theo ID          ✤");
-            System.out.println("✤       2. Tìm kiếm theo tên         ✤");
             System.out.println("✤       0. Quay lại                  ✤");
-            System.out.println("✤                                    ✤");
             System.out.println("✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤✤");
             System.out.println();
             System.out.println("Chọn chức năng");
@@ -37,9 +34,6 @@ public class SearchProduct {
             switch (choice) {
                 case 1:
                     searchById();
-                    break;
-                case 2:
-                    searchByName();
                     break;
                 case 0:
                     ProductViewLauncher.runProduct();
@@ -73,25 +67,6 @@ public class SearchProduct {
         } catch (Exception e) {
             System.out.println("Chưa hợp lệ!Mời nhập lại");
         }
-    }
-
-    public static void searchByName() {
-        List<Product> productList = productService.getItem();
-        int count = 0;
-        System.out.println();
-        System.out.print("Nhập tên sản phẩm cần tìm kiếm: ");
-        String search = scanner.nextLine();
-        System.out.println("Kết quả tìm kiếm của từ khóa '" + search + "' là  ");
-        search = search.toLowerCase();
-        System.out.printf("%-8s %-20s %-8s %-20s\n", "ID", "TÊN SẢN PHẨM", "SỐ LƯỢNG", "GIÁ (VND)");
-        for (Product product : productList) {
-            if (product.getName().toLowerCase().contains(search)) {
-                count++;
-                System.out.printf("%-8s %-20s %-8s %-20s\n", product.getProductID(), product.getName(),
-                        product.getQuantity(), forMater.format(product.getPrice()));
-            }
-        }
-        showReturnSearch(count);
     }
 
     public static void showReturnSearch(int count) {

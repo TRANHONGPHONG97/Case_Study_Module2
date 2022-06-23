@@ -66,7 +66,6 @@ public class OrderView {
 
     public void addOrder() {
         try {
-//            orderService.findAll();
             long orderId = System.currentTimeMillis() / 1000;
             ProductView productView = new ProductView();
             productView.showProduct(InputOption.ADD);
